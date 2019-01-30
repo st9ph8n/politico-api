@@ -1,8 +1,8 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var app = express();
+const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -11,9 +11,9 @@ app.use(cookieParser());
 
 app.use('/', (req, res) => {
   res.json({
-    status: "200",
-    message: "Welcome to Politico!"
-  })
+    status: '200',
+    message: 'Welcome to politico',
+  });
 });
 
 module.exports = app;
