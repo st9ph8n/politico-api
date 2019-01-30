@@ -11,8 +11,8 @@ app.use(cookieParser());
 
 app.use('/', (req, res) => {
   res.json({
-    status: '200',
-    message: 'Welcome to politico',
+    status: 200,
+    message: 'Welcome to Politico',
   });
 });
 
