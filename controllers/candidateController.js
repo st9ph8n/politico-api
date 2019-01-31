@@ -10,7 +10,7 @@ class CandidateController {
   }
 
   static show(req, res) {
-    const candidate = Candidate.find(req.params.id);
+    const candidate = Candidate.find(parseInt(req.params.id, 10));
 
     if (candidate) {
       res.json({
@@ -28,7 +28,7 @@ class CandidateController {
   static create(req, res) {
     const candidate = Candidate.create(req.body);
 
-    if (candidate) {
+    if (candidate.save()) {
       res.json({
         status: 201,
         data: candidate,
@@ -39,6 +39,15 @@ class CandidateController {
         error: 'There was some errors with inputs',
       });
     }
+  }
+
+  static delete(req, res) {
+    Candidate.delete(parseInt(req.params.id, 10));
+
+    res.json({
+      status: 204,
+      data: null,
+    });
   }
 }
 
