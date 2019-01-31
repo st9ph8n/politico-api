@@ -24,8 +24,8 @@ class PartiesController {
     });
   }
 
-  static show(req, res) {
-    const party = Party.find(parseInt(req.params.id, 10));
+  static showSpecific(req, res) {
+    const party = Party.findByid(parseInt(req.params.id, 10));
 
     if (party) {
       res.json({
