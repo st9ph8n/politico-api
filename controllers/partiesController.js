@@ -20,7 +20,7 @@ class PartiesController {
     const parties = Party.all();
     res.json({
       status: 200,
-      data: parties,
+      data: [parties],
     });
   }
 }
