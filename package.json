@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "start:dev": "nodemon ./bin/www",
     "lint": "eslint --ignore-path .gitignore .",
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
