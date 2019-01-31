@@ -6,7 +6,7 @@ class Party {
   }
 
   static find(id) {
-    return partyStore.find(item => item.id === id);
+    return partyStore.find((item, index) => index + 1 === id);
   }
 
   static create(data) {
