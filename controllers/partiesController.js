@@ -23,6 +23,22 @@ class PartiesController {
       data: [parties],
     });
   }
+
+  static showSpecific(req, res) {
+    const party = Party.findByid(parseInt(req.params.id, 10));
+
+    if (party) {
+      res.json({
+        status: 200,
+        data: [party],
+      });
+    } else {
+      res.json({
+        status: 404,
+        error: 'Party not found',
+      });
+    }
+  }
 }
 
 module.exports = PartiesController;

@@ -5,8 +5,8 @@ class Party {
     return partyStore.map((item, index) => ({ id: index + 1, ...item }));
   }
 
-  static find(id) {
-    return partyStore.find(item => item.id === id);
+  static findByid(id) {
+    return partyStore.find((item, index) => index + 1 === id);
   }
 
   static create(data) {
