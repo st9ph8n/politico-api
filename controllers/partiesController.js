@@ -15,6 +15,14 @@ class PartiesController {
       });
     }
   }
+
+  static index(req, res) {
+    const parties = Party.all();
+    res.json({
+      status: 200,
+      data: parties,
+    });
+  }
 }
 
 module.exports = PartiesController;
