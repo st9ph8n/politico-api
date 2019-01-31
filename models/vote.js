@@ -1,4 +1,4 @@
-let voteStore = require('../dataStore/votes');
+const voteStore = require('../dataStore/votes');
 
 class Vote {
   static all() {
@@ -9,24 +9,10 @@ class Vote {
     return voteStore.find(item => item.id === id);
   }
 
-  static create(data) {
-    const vote = new Vote();
-    vote.createdOn = data.createdOn;
-    vote.createdBy = data.createdBy;
-    vote.office = data.office;
-    vote.candidate = data.candidate;
+  static create(vote) {
+    voteStore.push(vote);
 
     return vote;
-  }
-
-  static delete(id) {
-    voteStore = voteStore.filter((item, index) => index + 1 !== id);
-  }
-
-  save() {
-    voteStore.push(this);
-
-    return true;
   }
 }
 

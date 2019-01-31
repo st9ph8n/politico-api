@@ -10,7 +10,7 @@ class PartiesController {
   }
 
   static show(req, res) {
-    const party = Party.find(parseInt(req.params.id, 10));
+    const party = Party.find(req.params.id);
 
     if (party) {
       res.json({
@@ -27,7 +27,8 @@ class PartiesController {
 
   static create(req, res) {
     const party = Party.create(req.body);
-    if (party.save()) {
+
+    if (party) {
       res.json({
         status: 201,
         data: party,
@@ -38,26 +39,6 @@ class PartiesController {
         error: 'There was some errors with your inputs',
       });
     }
-  }
-
-  // static update(req, res) {
-  //   let party = Party.find(parseInt(req.params.id, 10));
-  //   party.update(req.body);
-  //   party = Party.find(parseInt(req.params.id, 10));
-
-  //   res.json({
-  //     status: 200,
-  //     data: party,
-  //   });
-  // }
-
-  static delete(req, res) {
-    Party.delete(parseInt(req.params.id, 10));
-
-    res.json({
-      status: 204,
-      data: null,
-    });
   }
 }
 
