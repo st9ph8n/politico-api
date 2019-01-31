@@ -17,6 +17,12 @@ class Party {
 
     return party;
   }
+
+  save() {
+    partyStore.push(this);
+
+    return true;
+  }
 }
 
 
