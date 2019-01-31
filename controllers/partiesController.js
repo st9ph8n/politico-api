@@ -16,6 +16,15 @@ class PartiesController {
     }
   }
 
+  static editParty(req, res) {
+    const party = Party.editByid({ id: parseInt(req.params.id, 10), ...req.body });
+
+    res.json({
+      status: 201,
+      data: [party],
+    });
+  }
+
   static index(req, res) {
     const parties = Party.all();
     res.json({
