@@ -10,7 +10,7 @@ class OfficeController {
   }
 
   static show(req, res) {
-    const office = Office.find(req.params.id);
+    const office = Office.find(parseInt(req.params.id, 10));
 
     if (office) {
       res.json({
@@ -27,8 +27,7 @@ class OfficeController {
 
   static create(req, res) {
     const office = Office.create(req.body);
-
-    if (office) {
+    if (office.save()) {
       res.json({
         status: 201,
         data: office,
@@ -39,6 +38,15 @@ class OfficeController {
         error: 'There was some errors with your inputs',
       });
     }
+  }
+
+  static delete(req, res) {
+    Office.delete(parseInt(req.params.id, 10));
+
+    res.json({
+      status: 204,
+      data: null,
+    });
   }
 }
 

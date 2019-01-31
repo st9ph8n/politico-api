@@ -1,5 +1,4 @@
 const users = [{
-  id: 1,
   firstname: 'John',
   lastname: 'Doe',
   othername: 'Karl',
@@ -9,7 +8,6 @@ const users = [{
   isAdmin: false,
 },
 {
-  id: 2,
   firstname: 'Jane',
   lastname: 'Dennis',
   othername: 'Benard',
@@ -19,7 +17,6 @@ const users = [{
   isAdmin: false,
 },
 {
-  id: 3,
   firstname: 'Steve',
   lastname: '',
   othername: 'Midala',

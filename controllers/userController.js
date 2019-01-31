@@ -10,7 +10,7 @@ class UserController {
   }
 
   static show(req, res) {
-    const user = User.find(req.params.id);
+    const user = User.find(parseInt(req.params.id, 10));
 
     if (user) {
       res.json({
@@ -27,8 +27,7 @@ class UserController {
 
   static create(req, res) {
     const user = User.create(req.body);
-
-    if (user) {
+    if (user.save()) {
       res.json({
         status: 201,
         data: user,
@@ -36,9 +35,18 @@ class UserController {
     } else {
       res.json({
         status: 422,
-        error: 'There was some errors with your inputs'
+        error: 'There was some errors with your inputs',
       });
     }
+  }
+
+  static delete(req, res) {
+    User.delete(parseInt(req.params.id, 10));
+
+    res.json({
+      status: 204,
+      data: null,
+    });
   }
 }
 
