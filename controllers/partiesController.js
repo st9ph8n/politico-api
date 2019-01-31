@@ -6,7 +6,7 @@ class PartiesController {
     if (party.save()) {
       res.json({
         status: 201,
-        data: party,
+        data: [party],
       });
     } else {
       res.json({
