@@ -27,8 +27,7 @@ class PartiesController {
 
   static create(req, res) {
     const party = Party.create(req.body);
-
-    if (party) {
+    if (party.save()) {
       res.json({
         status: 201,
         data: party,
