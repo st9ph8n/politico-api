@@ -6,7 +6,7 @@ class PartiesController {
     if (party.save()) {
       res.json({
         status: 201,
-        data: party,
+        data: [party],
       });
     } else {
       res.json({
@@ -14,6 +14,14 @@ class PartiesController {
         error: 'There was some errors with your inputs',
       });
     }
+  }
+
+  static index(req, res) {
+    const parties = Party.all();
+    res.json({
+      status: 200,
+      data: [parties],
+    });
   }
 }
 

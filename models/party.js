@@ -2,7 +2,7 @@ const partyStore = require('../dataStore/parties');
 
 class Party {
   static all() {
-    return partyStore;
+    return partyStore.map((item, index) => ({ id: index + 1, ...item }));
   }
 
   static find(id) {
