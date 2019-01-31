@@ -10,7 +10,7 @@ class PetitionController {
   }
 
   static show(req, res) {
-    const petition = Petition.find(parseInt(req.params.id, 10));
+    const petition = Petition.find(req.params.id);
 
     if (petition) {
       res.json({
@@ -27,7 +27,8 @@ class PetitionController {
 
   static create(req, res) {
     const petition = Petition.create(req.body);
-    if (petition.save()) {
+
+    if (petition) {
       res.json({
         status: 201,
         data: petition,
@@ -38,15 +39,6 @@ class PetitionController {
         error: 'There was some errors with your inputs',
       });
     }
-  }
-
-  static delete(req, res) {
-    Petition.delete(parseInt(req.params.id, 10));
-
-    res.json({
-      status: 204,
-      data: null,
-    });
   }
 }
 

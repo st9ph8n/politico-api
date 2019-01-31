@@ -1,31 +1,18 @@
-let candidateStore = require('../dataStore/candidates');
+const candidateStore = require('../dataStore/candidates');
 
 class Candidate {
   static all() {
-    return candidateStore.map((item, index) => ({ id: index + 1, ...item }));
+    return candidateStore;
   }
 
   static find(id) {
-    return candidateStore.find((item, index) => index + 1 === id);
+    return candidateStore.find(item => item.id === id);
   }
 
-  static create(data) {
-    const candidate = new Candidate();
-    candidate.office = data.office;
-    candidate.party = data.party;
-    candidate.candidate = data.candidate;
+  static create(party) {
+    candidateStore.push(party);
 
-    return candidate;
-  }
-
-  static delete(id) {
-    candidateStore = candidateStore.filter((item, index) => index + 1 !== id);
-  }
-
-  save() {
-    candidateStore.push(this);
-
-    return true;
+    return party;
   }
 }
 

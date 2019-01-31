@@ -10,7 +10,7 @@ class VoteController {
   }
 
   static show(req, res) {
-    const vote = Vote.find(parseInt(req.params.id, 10));
+    const vote = Vote.find(req.params.id);
 
     if (vote) {
       res.json({
@@ -27,7 +27,8 @@ class VoteController {
 
   static create(req, res) {
     const vote = Vote.create(req.body);
-    if (vote.save()) {
+
+    if (vote) {
       res.json({
         status: 201,
         data: vote,
@@ -38,15 +39,6 @@ class VoteController {
         error: 'There was some errors with your inputs',
       });
     }
-  }
-
-  static delete(req, res) {
-    Vote.delete(parseInt(req.params.id, 10));
-
-    res.json({
-      status: 204,
-      data: null,
-    });
   }
 }
 

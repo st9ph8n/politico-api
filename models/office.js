@@ -1,30 +1,18 @@
-let officeStore = require('../dataStore/offices');
+const officeStore = require('../dataStore/offices');
 
 class Office {
   static all() {
-    return officeStore.map((item, index) => ({ id: index + 1, ...item }));
+    return officeStore;
   }
 
   static find(id) {
-    return officeStore.find((item, index) => index + 1 === id);
+    return officeStore.find(item => item.id === id);
   }
 
-  static create(data) {
-    const office = new Office();
-    office.type = data.type;
-    office.name = data.name;
+  static create(party) {
+    officeStore.push(party);
 
-    return office;
-  }
-
-  static delete(id) {
-    officeStore = officeStore.filter((item, index) => index + 1 !== id);
-  }
-
-  save() {
-    officeStore.push(this);
-
-    return true;
+    return party;
   }
 }
 
