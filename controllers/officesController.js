@@ -10,7 +10,7 @@ class OfficeController {
   }
 
   static showByid(req, res) {
-    const office = Office.find(parseInt(req.params.id, 10));
+    const office = Office.findByid(parseInt(req.params.id, 10));
 
     if (office) {
       res.json({
