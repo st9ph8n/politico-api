@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const createPartiesRoute = require('./routes/parties');
-
+const createOfficesRoute = require('./routes/offices');
 
 const app = express();
 
@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/v1/parties', createPartiesRoute());
+app.use('/api/v1/offices', createOfficesRoute());
 
 app.use('/', (req, res) => {
   res.json({
