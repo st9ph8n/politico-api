@@ -14,6 +14,10 @@ class Office {
 
     return true;
   }
+
+  static all() {
+    return officeStore.map((item, index) => ({ id: index + 1, ...item }));
+  }
 }
 
 module.exports = Office;

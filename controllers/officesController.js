@@ -15,6 +15,14 @@ class OfficeController {
       });
     }
   }
+
+  static showallOffice(req, res) {
+    const offices = Office.all();
+    res.json({
+      status: 200,
+      data: offices,
+    });
+  }
 }
 
 module.exports = OfficeController;

@@ -5,6 +5,7 @@ function createOfficesRoute() {
   const router = express.Router();
 
   router.post('/', officeController.createOffice);
+  router.get('/', officeController.showallOffice);
 
 
   return router;
