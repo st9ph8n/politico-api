@@ -18,6 +18,10 @@ class Office {
   static all() {
     return officeStore.map((item, index) => ({ id: index + 1, ...item }));
   }
+
+  static findByid(id) {
+    return officeStore.find((item, index) => index + 1 === id);
+  }
 }
 
 module.exports = Office;
