@@ -7,6 +7,7 @@ function createOfficesRoute() {
   router.post('/', officeController.createOffice);
   router.get('/', officeController.showallOffice);
 
+  router.get('/:id', officeController.showByid);
 
   return router;
 }
