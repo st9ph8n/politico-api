@@ -8,6 +8,7 @@ function createPartiesRoute() {
   router.get('/', partiesController.index);
   router.get('/:id', partiesController.showSpecific);
   router.patch('/:id', partiesController.editParty);
+  router.delete('/:id', partiesController.deleteSpecific);
 
   return router;
 }

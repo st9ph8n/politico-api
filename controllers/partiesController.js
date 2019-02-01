@@ -48,6 +48,15 @@ class PartiesController {
       });
     }
   }
+
+  static deleteSpecific(req, res) {
+    Party.delete(parseInt(req.params.id, 10));
+
+    res.json({
+      status: 204,
+      data: null,
+    });
+  }
 }
 
 module.exports = PartiesController;

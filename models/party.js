@@ -1,4 +1,4 @@
-const partyStore = require('../dataStore/parties');
+let partyStore = require('../dataStore/parties');
 
 class Party {
   static all() {
@@ -32,6 +32,10 @@ class Party {
     partyStore.push(this);
 
     return true;
+  }
+
+  static delete(id) {
+    partyStore = partyStore.filter((item, index) => index + 1 !== id);
   }
 }
 
